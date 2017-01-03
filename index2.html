@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+
+		<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+		var obj;
+
+			function refresh(){
+				$.get("dataserve.php", function(data_json){
+					obj = JSON.parse(data_json);
+
+					console.log(obj);
+
+				});
+			}
+
+		</script>
+
+		<style type="text/css">
+			@font-face {
+			  font-family: "San Francisco";
+			  font-weight: 400;
+			  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+			}
+
+			body {
+				background: url("bg.jpg") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+
+				padding: 40px;
+			}
+			.clock h1 {
+				font-weight: 100;
+				color: white;
+				/*background: white; */
+				font-size: 90px;
+				float: right;
+			}
+			.deltasig h1 {
+				display: inline;
+				font-weight: 400;
+				color: white;
+				font-size: 90px;
+			}
+			.deltasig h2 {
+				display: inline;
+				font-weight: 400;
+				color: white;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" style="width: 1920px;">
+			<div class="row">
+				<div class="col-md-10 deltasig"><h1>ΔΣΦ</h1><h2> ΔΕ</h2></div>
+  				<div class="col-md-2 clock"><h1>9:54</h1></div>
+			</div>
+		</div>
+	</body>
+</html>
