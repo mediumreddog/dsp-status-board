@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 500.00001 500.00001"
+   height="500"
+   width="500">
+  <g
+     transform="translate(0,-552.36216)"
+     id="layer1">
+    <ellipse
+       ry="242.57381"
+       rx="242.57379"
+       cy="802.36218"
+       cx="250"
+       id="path4136"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffcc66;stroke-width:14.85242462;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       transform="matrix(0.98858447,0,0,0.98858447,1.8176907,9.2980663)"
+       id="g4225">
+      <path
+         style="fill:#15673f;fill-opacity:0.94117647;stroke:#ffcc66;stroke-width:15572.93847656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4142"
+         d="M 440955,-4863.2316 9715.6323,-4673.4019 225170.92,-378232.56 Z"
+         transform="matrix(9.5588841e-4,0,0,9.5588841e-4,35.649465,925.76916)" />
+      <path
+         style="fill:#ffcc66;fill-opacity:1;fill-rule:evenodd;stroke:#ffcc6f;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 251.04816,572.32492 0,230.31478"
+         id="path4144" />
+      <path
+         id="path4146"
+         d="m 253.00037,803.71076 199.45845,115.1574"
+         style="fill:none;fill-rule:evenodd;stroke:#ffcc6f;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#ffcc6f;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 252.44862,801.71076 52.990164,916.86816"
+         id="path4148" />
+    </g>
+  </g>
+</svg>
