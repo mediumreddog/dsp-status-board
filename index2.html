@@ -3,67 +3,193 @@
 	<head>
 		<meta charset="utf-8">
 
+        <!-- Stylesheet -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
+        <!-- jQuery -->
 		<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
-		<script type="text/javascript">
-		var obj;
-
-			function refresh(){
-				$.get("dataserve.php", function(data_json){
-					obj = JSON.parse(data_json);
-
-					console.log(obj);
-
-				});
-			}
-
-		</script>
+    		<!-- JavaScript -->
+    <script src="statusboard.js"></script>
 
 		<style type="text/css">
-			@font-face {
-			  font-family: "San Francisco";
-			  font-weight: 400;
-			  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-			}
+      @font-face {
+        font-family: "San Francisco";
+        font-weight: 100;
+        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
+      }
+
+      /** Thin */
+      @font-face {
+        font-family: "San Francisco";
+        font-weight: 200;
+        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
+      }
+
+      /** Regular */
+      @font-face {
+        font-family: "San Francisco";
+        font-weight: 400;
+        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+      }
+
+      /** Medium */
+      @font-face {
+        font-family: "San Francisco";
+        font-weight: 500;
+        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
+      }
+
+      /** Semi Bold */
+      @font-face {
+        font-family: "San Francisco";
+        font-weight: 600;
+        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
+      }
+
+      /** Bold */
+      @font-face {
+        font-family: "San Francisco";
+        font-weight: 700;
+        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+      }
 
 			body {
+        font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
 				background: url("bg.jpg") no-repeat center center fixed;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
 				background-size: cover;
 
-				padding: 40px;
+				padding: 30px;
 			}
-			.clock h1 {
+			.clock {
+				position: relative;
+				padding-right: 15px;
+			}
+      .clock .time{
+          float: right;
+          margin-top: -30px;
+      }
+			.clock #clockNum {
 				font-weight: 100;
 				color: white;
 				/*background: white; */
 				font-size: 90px;
-				float: right;
 			}
+      .clock #clockAMPM {
+          font-weight: 100;
+          color: white;
+          /*background: white; */
+          font-size: 40px;
+      }
+			.clock .date {
+				position: absolute;
+				bottom: 0;
+				right: 15px;
+			}
+      .clock h3 {
+          font-weight: 200;
+          color: white;
+          /*background: white; */
+          /* font-size: 90px; */
+          float: right;
+					display: table-cell;
+					vertical-align: bottom;
+      }
 			.deltasig h1 {
 				display: inline;
-				font-weight: 400;
+				font-weight: 100;
 				color: white;
 				font-size: 90px;
 			}
 			.deltasig h2 {
 				display: inline;
-				font-weight: 400;
+				font-weight: 200;
 				color: white;
 				font-size: 50px;
 			}
+	    .glass {
+	        border-radius: 7px 7px 0 0;
+	        backdrop-filter: blur(10px);
+	        -webkit-backdrop-filter: blur(10px);
+	        padding: 0;
+	    }
+	    .glass .title {
+	        border-radius: 7px 7px 0 0;
+	        background-color: rgba(255, 255, 255, 0.5);
+	        padding: 0 8px 0 10px;
+	    }
+	    .glass .description {
+	        background-color: rgba(213, 213, 213, 0.5);
+	        border-radius: 0 0 7px 7px;
+	        padding: 0 10px 0 10px;
+	    }
+	    .scrolling {
+	        font-size: 30px;
+	    }
 		</style>
 	</head>
 	<body>
 		<div class="container" style="width: 1920px;">
 			<div class="row">
-				<div class="col-md-10 deltasig"><h1>ΔΣΦ</h1><h2> ΔΕ</h2></div>
-  				<div class="col-md-2 clock"><h1>9:54</h1></div>
+				<!-- <div class="col-md-8 deltasig"><h1>ΔΣΦ</h1><h2> ΔΕ</h2></div> -->
+				<div class="col-md-8 deltasig"><h1></h1><h2></h2></div>
+  				<div class="col-md-4 clock">
+                    <div class="time">
+                        <a id="clockNum">0:00</a> <a id="clockAMPM">P.M.</a>
+                    </div>
+										<div class="date">
+                    	<h3 id="clockDate">Wednesday, April 20</h3>
+										</div>
+                </div>
 			</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="glass">
+                        <div class="title">
+                            ANNOUNCEMENTS
+                        </div>
+                        <div class="description">
+                            <p class="scrolling">There are plenty of announcements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="glass">
+                        <div class="title">
+                            DSP CALENDAR
+                        </div>
+                        <div class="description">
+                            <p class="scrolling">There are plenty of announcements.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass">
+                        <div class="title">
+                            ATHLETIC CALENDAR
+                        </div>
+                        <div class="description">
+                            <p class="scrolling">There are plenty of announcements.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass">
+                        <div class="title">
+                            CHAIR ANNOUNCEMENTS
+                        </div>
+                        <div class="description">
+                            <p class="scrolling">There are plenty of announcements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</body>
 </html>
