@@ -6,131 +6,15 @@
         <!-- Stylesheet -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
+				<!-- Stylesheet -->
+		<link rel="stylesheet" href="style.css" >
+
         <!-- jQuery -->
 		<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
     		<!-- JavaScript -->
     <script src="statusboard.js"></script>
 
-		<style type="text/css">
-      @font-face {
-        font-family: "San Francisco";
-        font-weight: 100;
-        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
-      }
-
-      /** Thin */
-      @font-face {
-        font-family: "San Francisco";
-        font-weight: 200;
-        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
-      }
-
-      /** Regular */
-      @font-face {
-        font-family: "San Francisco";
-        font-weight: 400;
-        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-      }
-
-      /** Medium */
-      @font-face {
-        font-family: "San Francisco";
-        font-weight: 500;
-        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
-      }
-
-      /** Semi Bold */
-      @font-face {
-        font-family: "San Francisco";
-        font-weight: 600;
-        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
-      }
-
-      /** Bold */
-      @font-face {
-        font-family: "San Francisco";
-        font-weight: 700;
-        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
-      }
-
-			body {
-        font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
-				background: url("bg.jpg") no-repeat center center fixed;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-
-				padding: 30px;
-			}
-			.clock {
-				position: relative;
-				padding-right: 15px;
-			}
-      .clock .time{
-          float: right;
-          margin-top: -30px;
-      }
-			.clock #clockNum {
-				font-weight: 100;
-				color: white;
-				/*background: white; */
-				font-size: 90px;
-			}
-      .clock #clockAMPM {
-          font-weight: 100;
-          color: white;
-          /*background: white; */
-          font-size: 40px;
-      }
-			.clock .date {
-				position: absolute;
-				bottom: 0;
-				right: 15px;
-			}
-      .clock h3 {
-          font-weight: 200;
-          color: white;
-          /*background: white; */
-          /* font-size: 90px; */
-          float: right;
-					display: table-cell;
-					vertical-align: bottom;
-      }
-			.deltasig h1 {
-				display: inline;
-				font-weight: 100;
-				color: white;
-				font-size: 90px;
-			}
-			.deltasig h2 {
-				display: inline;
-				font-weight: 200;
-				color: white;
-				font-size: 50px;
-			}
-	    .glass {
-	        border-radius: 7px 7px 0 0;
-	        backdrop-filter: blur(10px);
-	        -webkit-backdrop-filter: blur(10px);
-	        padding: 0;
-	    }
-	    .glass .title {
-	        border-radius: 7px 7px 0 0;
-	        background-color: rgba(255, 255, 255, 0.5);
-	        padding: 0 8px 0 10px;
-	    }
-	    .glass .description {
-	        background-color: rgba(213, 213, 213, 0.5);
-	        border-radius: 0 0 7px 7px;
-	        padding: 0 10px 0 10px;
-	    }
-	    .scrolling {
-	        font-size: 30px;
-	    }
-		</style>
 	</head>
 	<body>
 		<div class="container" style="width: 1920px;">
@@ -164,8 +48,11 @@
                         <div class="title">
                             DSP CALENDAR
                         </div>
-                        <div class="description">
-                            <p class="scrolling">There are plenty of announcements.</p>
+                        <div class="description mid">
+                            <ul class="calendarList" id="DSPCAL">
+															<li></li>
+
+														</ul>
                         </div>
                     </div>
                 </div>
@@ -174,8 +61,11 @@
                         <div class="title">
                             ATHLETIC CALENDAR
                         </div>
-                        <div class="description">
-                            <p class="scrolling">There are plenty of announcements.</p>
+												<div class="description mid">
+                            <ul class="calendarList" id="ATHCAL">
+															<li></li>
+
+														</ul>
                         </div>
                     </div>
                 </div>
@@ -184,7 +74,7 @@
                         <div class="title">
                             CHAIR ANNOUNCEMENTS
                         </div>
-                        <div class="description">
+                        <div class="description mid">
                             <p class="scrolling">There are plenty of announcements.</p>
                         </div>
                     </div>
