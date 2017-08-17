@@ -116,6 +116,11 @@ body {
 .glass .description.mid {
   height: 488px;
 }
+
+.glass .description.mid.chairAnnouncements {
+  padding: 35px 35px 35px 35px;
+}
+
 .scrolling {
     font-size: 30px;
 }

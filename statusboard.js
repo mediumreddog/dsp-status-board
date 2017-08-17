@@ -29,14 +29,11 @@ function loadATHCalendar() {
 
     if(data["items"].length == 0) {
       $("#ATHCAL").append('<p class="noItems">No Upcoming Events</p>');
-      console.log("whu");
+    } else {
+      $.each(data["items"], function(key, value) {
+        displayEvent("ATHCAL", value);
+      });
     }
-
-    $.each(data["items"], function(key, value) {
-      console.log("waaa");
-      //displayEvent("ATHCAL", value);
-    });
-
   });
 }
 
@@ -100,13 +97,35 @@ function displayEvent(calendar, values) {
 
 }
 
+function loadChairAnnouncements() {
+
+//https://sheets.googleapis.com/v4/spreadsheets/1ChIxEqBwPGLrEhcwdVmv6pv4fVwtu_xJ2gkw1aPnm-M/values/A2:C22?key=AIzaSyDyq-41653zwrojWvFKnuzM6L9Kh0DJk7s
+
+
+  $.ajax({
+    url: 'https://sheets.googleapis.com/v4/spreadsheets/1ChIxEqBwPGLrEhcwdVmv6pv4fVwtu_xJ2gkw1aPnm-M/values/A2:C22?key=AIzaSyDyq-41653zwrojWvFKnuzM6L9Kh0DJk7s',
+    dataType: 'jsonp',
+    success: function(data) {
+      //console.log(data["values"]);
+      for (var i = 0; i < data["values"].length; i++) {
+      //   console.log(data["values"][i]);
+        if(data["values"][i].length > 2) {
+          console.log(data["values"][i][0]);
+        }
+      }
+
+    }
+  });
+
+}
+
 
 $(document).ready(function()
 {
-  loadDSPCalendar();
-  loadATHCalendar();
-
+  updateCalendars();
   setInterval('updateCalendars()', 1000*60*60);
+
+  //loadChairAnnouncements();
 
   setInterval('updateClock()', 2000);
 });
