@@ -1,95 +1,138 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-
-        <!-- Stylesheet -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-
-				<!-- Stylesheet -->
-		<link rel="stylesheet" href="style.css" >
-
-        <!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-
-    		<!-- JavaScript -->
-		<script src="https://cdn.rawgit.com/mholt/PapaParse/master/papaparse.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" >
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <!-- JavaScript -->
     <script src="statusboard.js"></script>
+		<script src="bootstrap.min.js"></script>
+		<!-- Apps -->
+		<script src="app.js"></script>
 
-	</head>
-	<body>
-		<div class="container" style="width: 1920px;">
+  </head>
+  <body>
+    <div class="container" style="width: 1920px;">
+
+
+      <div class="row">
+        <!-- <div class="col-md-8 deltasig"><h1>ΔΣΦ</h1><h2> ΔΕ</h2></div> -->
+        <div class="col-md-8 deltasig">
+          <h1></h1>
+          <h2></h2>
+        </div>
+        <div class="col-md-4 clock">
+          <div class="time">
+            <a id="clockNum">0:00</a> <a id="clockAMPM">P.M.</a>
+          </div>
+          <div class="date">
+            <h3 id="clockDate">Wednesday, April 20</h3>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="glass">
+            <div class="title">
+              ANNOUNCEMENTS
+            </div>
+            <div class="description">
+              <p class="scrolling">There are plenty of announcements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="glass">
+            <div class="title">
+              DSP CALENDAR
+            </div>
+            <div class="description mid">
+              <ul class="calendarList" id="DSPCAL">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="glass">
+            <div class="title">
+              ATHLETIC CALENDAR
+            </div>
+            <div class="description mid">
+              <ul class="calendarList" id="ATHCAL">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="glass">
+            <div class="title">
+              CHAIR ANNOUNCEMENTS
+            </div>
+            <div class="description mid chairAnnouncements">
+							<div id="announcement" style="">
+
+	              <div style="height:125px;width:125px;background-color:black;display:inline-block;vertical-align:top;"></div>
+	              <div class="announcementTitle" >
+	                <div style="vertical-align:middle;">
+	                  <h1 style="font-weight: lighter;padding: 16px 0 0 23px;" id="announcementName">	 </h1>
+	                </div>
+	                <div style="vertical-align:middle;">
+	                  <h3 style="font-weight: lighter;padding: 0px 0 0 23px;" id="announcementPosition">  </h3>
+	                </div>
+	              </div>
+								<div style="padding: 15px 15px 15px 15px;">
+									<p style="font-size: 30px;font-weight:lighter;" id="announcementMessage">  </p>
+								</div>
+							</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 			<div class="row">
-				<!-- <div class="col-md-8 deltasig"><h1>ΔΣΦ</h1><h2> ΔΕ</h2></div> -->
-				<div class="col-md-8 deltasig"><h1></h1><h2></h2></div>
-  				<div class="col-md-4 clock">
-                    <div class="time">
-                        <a id="clockNum">0:00</a> <a id="clockAMPM">P.M.</a>
-                    </div>
-										<div class="date">
-                    	<h3 id="clockDate">Wednesday, April 20</h3>
-										</div>
-                </div>
+				<div class="col-md-12" style="text-align:center;">
+					<div id="appDock" class="appDock">
+					</div>
+				</div>
 			</div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="glass">
-                        <div class="title">
-                            ANNOUNCEMENTS
-                        </div>
-                        <div class="description">
-                            <p class="scrolling">There are plenty of announcements.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="glass">
-                        <div class="title">
-                            DSP CALENDAR
-                        </div>
-                        <div class="description mid">
-                            <ul class="calendarList" id="DSPCAL">
-															<li></li>
 
-														</ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="glass">
-                        <div class="title">
-                            ATHLETIC CALENDAR
-                        </div>
-												<div class="description mid">
-                            <ul class="calendarList" id="ATHCAL">
-															<li></li>
 
-														</ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="glass">
-                        <div class="title">
-                            CHAIR ANNOUNCEMENTS
-                        </div>
-                        <div class="description mid chairAnnouncements">
-                            <div style="height:125px;width:125px;background-color:black;display:inline-block;vertical-align:top;"></div>
-														<div style="display:inline-block;height:125px;vertical-align:middle;">
-															<div style="vertical-align:middle;">
-																<h1 style="font-weight: lighter;padding: 16px 0 0 23px;">	Name </h1>
-															</div>
-															<div style="vertical-align:middle;">
-																<h3 style="font-weight: lighter;padding: 0px 0 0 23px;"> position </h3>
-															</div>
-														</div>
+    </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-		</div>
-	</body>
+
+<div id="appModal" class="modal fade " role="dialog">
+  <div class="modal-dialog glass appWindow">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  </body>
 </html>
