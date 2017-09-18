@@ -3,6 +3,8 @@ class app {
     this.name = name;
 
     this.renderIcon();
+
+    $('#modalTitle').html(name);
   }
 
   renderIcon() {
